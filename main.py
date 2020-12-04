@@ -1,14 +1,13 @@
 import time
 import matplotlib.pyplot as plt
 import streamlit as st
-from keras.models import Sequential, load_model
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
 # from generator.Board import Board
 from recognize_sudoku import recognize
 from sudoku_solver import read_from_file, all_board_non_zero, solve
 from PIL import Image
-
+from tensorflow.keras.models import Sequential, load_model
 old_sudoku, model = None, None
 # Loading model (Load weights and configuration seperately to speed up model.predict)
 input_shape = (28, 28, 1)
