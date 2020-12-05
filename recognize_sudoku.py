@@ -126,7 +126,7 @@ def write_solution_on_image(image, grid, user_grid):
             bottom_left_corner_x = width * j + math.floor((width - text_width) / 2) + off_set_x
             bottom_left_corner_y = height * (i + 1) - math.floor((height - text_height) / 2) + off_set_y
             image = cv2.putText(image, text, (bottom_left_corner_x, bottom_left_corner_y),
-                                font, font_scale, (0, 255, 0), thickness=3, lineType=cv2.LINE_AA)
+                                font, font_scale, (255, 0, 0), thickness=3, lineType=cv2.LINE_AA)
             # cv2.imshow('WW',image)
     return image
 
