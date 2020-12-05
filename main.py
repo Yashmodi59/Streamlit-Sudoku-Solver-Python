@@ -39,13 +39,14 @@ with st.empty():
        time.sleep(1)
        st.write("✔️ Done! Now, you can upload image!")
 st.sidebar.markdown(
-    """<h1>Sudoku Solver</h1>
+    """
+    <h1  style="color:blue;">Sudoku Solver</h1>
     <p>
-    <h3>Hello I am your helper!🕵️‍♂️</h3></br>
+    <h3 style="color:green;">Hello I am your helper!🕵️‍♂️</h3></br>
     This a Sudoku Solver app that uses a custom OCR to detect digits in a cropped screenshot of a sudoku grid and then
     using simple recursive algorithm to solve it before displaying the results.
     </p>
-    <p>
+    <p style="color:red;">
     Upload an image of a sudoku grid(Use PNG file if possible) and get the solved state.
     </p>
     <b>Note:</b>
