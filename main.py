@@ -1,5 +1,5 @@
 import time
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 import streamlit as st
 from sudoku_solver import read_from_file, all_board_non_zero, solve
 from keras.models import Sequential, load_model
