@@ -9,9 +9,5 @@ imageio==2.6.1
 Keras==2.4.3
 Pillow==8.0.1
 tensorflow==2.3.0
-black
-flake8 
-pytest 
-pytest-cov 
-sphinx 
-numpydoc
+scikit-image~=0.16.2
+
