@@ -1,12 +1,12 @@
 import time
 import matplotlib.pyplot as plt
 import streamlit as st
+from sudoku_solver import read_from_file, all_board_non_zero, solve
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 # from generator.Board import Board
 from recognize_sudoku import recognize
-from sudoku_solver import read_from_file, all_board_non_zero, solve
 from PIL import Image
 
 old_sudoku, model = None, None
