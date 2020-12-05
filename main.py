@@ -8,6 +8,9 @@ from recognize_sudoku import recognize
 from sudoku_solver import read_from_file, all_board_non_zero, solve
 from PIL import Image
 from tensorflow.keras.models import Sequential, load_model
+import time
+
+
 old_sudoku, model = None, None
 # Loading model (Load weights and configuration seperately to speed up model.predict)
 input_shape = (28, 28, 1)
@@ -26,16 +29,23 @@ model.add(Dense(num_classes, activation='softmax'))
 
 # Load weights from pre-trained model. This model is trained in digitRecognition.py
 model.load_weights("digitRecognition.h5")
+
 # detector_model, recognizer_model = load_model()
 st.set_page_config(
     page_title="Sudoku Solver App",
     page_icon=":shark:",
     layout="centered",
     initial_sidebar_state="expanded", )
+st.title("Sudoku Solver")
+with st.empty():
+   for seconds in range(5):
+       st.write(f"⏳ {seconds} Solving dependency")
+       time.sleep(1)
+       st.write("✔  Done! Now, you can now upload image!")
 st.sidebar.markdown(
     """<h1>Sudoku Solver</h1>
     <p>
-    <h3>Hello I am you helper!</h3></br>
+    <h3>Hello I am your helper!</h3></br>
     This a Sudoku Solver app that uses a custom OCR to detect digits in a cropped screenshot of a sudoku grid and then
     using simple recursive algorithm to solve it before displaying the results.
     </p>
@@ -44,10 +54,18 @@ st.sidebar.markdown(
     </p>
     <img src='https://raw.githubusercontent.com/CVxTz/sudoku_solver/master/solver/samples/wiki_sudoku.png'
          width="300"></br>
-    Image source : <a href='https://en.wikipedia.org/wiki/Sudoku'>Wikipedia Sudoku</a>
+    Image source : <a href='https://en.wikipedia.org/wiki/Sudoku'>Wikipedia Sudoku</a></br>
+    <img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/> 
+     Made By : <a href='https://www.linkedin.com/in/yashmodi59/'>Yash Modi</a>
     """,
     unsafe_allow_html=True,
 )
+hide_streamlit_style = """
+            <style>
+            footer {visibility: hidden;}
+          </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 file = st.file_uploader("Upload Sudoku image", type=["jpg", "png"])
 
@@ -60,6 +78,8 @@ if file:
     if not (all_board_non_zero(grid)):
         st.error('Could not detect sudoku please try again or try with some other resolution')
     else:
+        st.success('Solved!')
+        st.balloons()
         solving_time = st.empty()
         solving_time.markdown(
             "<center>"
