@@ -1,9 +1,7 @@
-import imageio
-
+from skimage import io
 
 def read_from_file(file_object):
-    img = imageio.imread(file_object, pilmode="RGB")
-
+    img = io.imread(file_object)
     return img
 
 
